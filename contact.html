@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iNSight Web Development</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <style>
+      form {
+        /* Center the form on the page */
+        margin: 0 auto;
+        width: 400px;
+        /* Form outline */
+        padding: 1em;
+        border: 1px solid #CCC;
+        border-radius: 1em;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      form li + li {
+        margin-top: 1em;
+      }
+
+      label {
+        /* Uniform size & alignment */
+        display: inline-block;
+        width: 90px;
+        text-align: right;
+      }
+
+      input,
+      textarea {
+        /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+        font: 1em sans-serif;
+
+        /* Uniform text field size */
+        width: 300px;
+        box-sizing: border-box;
+
+        /* Match form field borders */
+        border: 1px solid #999;
+      }
+
+      input:focus,
+      textarea:focus {
+        /* Additional highlight for focused elements */
+        border-color: #000;
+      }
+
+      textarea {
+        /* Align multiline text fields with their labels */
+        vertical-align: top;
+
+        /* Provide space to type some text */
+        height: 5em;
+      }
+
+      .button {
+        /* Align buttons with the text fields */
+        padding-left: 90px; /* same size as the label elements */
+      }
+
+      button {
+        /* This extra margin represent roughly the same space as the space
+     between the labels and their text fields */
+        margin-left: 0.5em;
+      }
+      #feedback {
+        background-color: antiquewhite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: .5em;
+        /* make this element invisible until we are ready for it */
+        display: none;
+
+      }
+      .moveDown {
+          margin-top: 3em;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div id="content">
+      <header class="mainHeader">
+        <div class="logoBox">
+          <a href="index.html"><img src="https://cdn.glitch.com/9b9071cb-a76f-40ba-a01f-e9635cea8188%2FiNSight%20Logo_LOW.png?v=1592834548708" alt="insight logo"></a>
+        </div>
+
+        <nav class="topLinks">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chatbots.html">Chatbots</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <div class="bannerBox">
+          <img src="https://cdn.glitch.com/9b9071cb-a76f-40ba-a01f-e9635cea8188%2Fmarvin-meyer-SYTO3xs06fU-unsplash%20(crop).jpg?v=1593307240691" alt="banner" width="960">
+          <h2 class="textBanner" id="textBanner1">we are here</h2>
+          <h2 class="textBanner" id="textBanner2">to help you</h2>
+        </div>
+
+        <div class="homeGrid">
+          <h1>CONTACT US</h1>
+          <h3>Feel free to Talk with our Chatbot or Complete the Form Below:</h3>
+          
+          <div id="feedback"></div>
+    <form action="/my-handling-form-page" method="post">
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name" />
+        </li>
+        <li>
+          <label for="company">Company:</label>
+          <input type="text" id="company" name="user_co" />
+        </li>
+        <li>
+          <label for="phoneNum">Phone:</label>
+          <input type="tel" id="phoneNum" name="user_phone" />
+        </li>
+        <li>
+          <label for="mail">E-mail:</label>
+          <input type="email" id="mail" name="user_email" />
+        </li>
+        <li>
+          <label for="msg">Message:</label>
+          <textarea id="msg" name="user_message"></textarea>
+        </li>
+        <li class="button">
+          <button type="submit">Send your message</button>
+        </li>
+      </ul>
+    </form>
+          
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footerIMG">
+        <img src="https://cdn.glitch.com/9b9071cb-a76f-40ba-a01f-e9635cea8188%2FfooterIMG_TRSP.png?v=1593308937829" width="960">
+      </div>
+      <div class="social">
+        <a href="http://www.facebook.com" target="_blank">
+          <img src="https://cdn.glitch.com/9b9071cb-a76f-40ba-a01f-e9635cea8188%2F5f00ae6a-9da5-4879-aa4c-9b87542a7a76_facebook.png?v=1593303370711" alt="facebook icon" />
+        </a>
+        <a href="http://www.instagram.com" target="_blank">
+          <img src="https://cdn.glitch.com/9b9071cb-a76f-40ba-a01f-e9635cea8188%2F5f00ae6a-9da5-4879-aa4c-9b87542a7a76_instagram.png?v=1593303370889" alt="instagram icon" />
+        </a>
+        <a href="https://www.linkedin.com" target="_blank">
+          <img src="https://cdn.glitch.com/9b9071cb-a76f-40ba-a01f-e9635cea8188%2FlinkedinLogo.png?v=1593304270513" alt="linkedin icon" />
+        </a>
+      </div>
+      <div class="footLogo"></div>
+      <div class="legalNotice">
+        <p>iNSight Web Design - 2020</p>
+        <a href="https://insight-web-development.glitch.me/site-plan.html">Site Plan</a>
+      </div>
+    </footer>
+    
+    <script>
+    // get the feedback div element so we can do something with it.
+    const feedbackElement = document.getElementById('feedback');
+    // get the form so we can read what was entered in it.
+    const formElement = document.forms[0];
+    // add a 'listener' to wait for a submission of our form. When that happens run the code below.
+    formElement.addEventListener('submit', function(e) {
+        // stop the form from doing the default action
+        e.preventDefault();
+        // set the contents of our feedback element to a message letting the user know the form was submitted successfully. Notice that we pull the name that was entered in the form to personalize the message!
+        feedbackElement.innerHTML = 'Hello '+ formElement.user_name.value +'! Thank you for your message. We will get back with you as soon as possible!';
+        // make the feedback element visible.
+        feedbackElement.style.display = "block";
+        // add a class to move everything down so our message doesn't cover it.
+        document.body.classList.toggle('moveDown');
+    });
+</script>
+  </body>
+</html>
